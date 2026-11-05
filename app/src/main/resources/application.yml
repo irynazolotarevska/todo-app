@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: todo-app
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/todo}
+    username: ${DB_USER:todo}
+    password: ${DB_PASSWORD:todo}
+  jpa:
+    hibernate:
+      ddl-auto: validate
