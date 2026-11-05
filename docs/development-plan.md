@@ -59,7 +59,7 @@ Every error returns the same JSON shape, so tests can check it with one schema:
 
 Branch `feature/setup`
 
-- [ ] Generate the project on start.spring.io: Maven, Java 21, Spring Boot 3, group `com.portfolio`, artifact `todo-app`
+- [ ] Generate the project on start.spring.io: Maven, Java 21, Spring Boot 4, group `com.portfolio`, artifact `todo-app`
 - [ ] Dependencies: Spring Web, Spring Data JPA, Validation, PostgreSQL Driver, Flyway, Thymeleaf, Actuator
 - [ ] Put it in `app/` (the parent POM comes in Step 7)
 - [ ] `docker-compose.yml` with a `postgres:16` service, database `todo`, port 5432, a named volume

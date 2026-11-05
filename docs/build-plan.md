@@ -44,7 +44,7 @@ The stack below matches what Dutch vacancies for Java developers and test automa
 | --- | --- | --- |
 | Language | Java 21 | NL ads ask for Java 17 or 21+ |
 | Build | Maven | Named in most Dutch Java and QA ads |
-| Framework | Spring Boot 3 (Web, Data JPA / Hibernate, Validation) | Core requirement in almost every NL Java vacancy, junior included |
+| Framework | Spring Boot 4 (Web, Data JPA / Hibernate, Validation) | Core requirement in almost every NL Java vacancy, junior included |
 | Database | PostgreSQL + Flyway | Relational DB and SQL are asked in both dev and QA ads |
 | UI | Thymeleaf + Bootstrap | Keeps scope small; Angular or React is often a nice to have |
 | API docs | springdoc OpenAPI (Swagger UI) | OpenAPI is standard in NL backend teams |

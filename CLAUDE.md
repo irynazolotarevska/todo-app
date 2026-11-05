@@ -30,7 +30,7 @@ search, tags, pagination.
 
 ## Tech stack
 
-- Java 21, Maven (multi-module from Step 7), Spring Boot 3
+- Java 21, Maven (multi-module from Step 7), Spring Boot 4
   (Web, Data JPA / Hibernate, Validation, Actuator), Thymeleaf + Bootstrap
 - PostgreSQL 16 + Flyway, Docker + docker-compose
 - springdoc OpenAPI (Swagger UI)
