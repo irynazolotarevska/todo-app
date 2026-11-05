@@ -104,7 +104,7 @@ This plan defines what is tested, how, where and when for the To-Do App MVP. It 
 
 | Component | Version |
 | --- | --- |
-| App | Spring Boot 3, Java 21, in Docker |
+| App | Spring Boot 4, Java 21, in Docker |
 | Database | PostgreSQL 16 in Docker (Testcontainers for integration tests) |
 | Browser | Chromium (Playwright), Chrome (Selenium), headless in CI |
 | Node.js | 20 LTS or newer |
