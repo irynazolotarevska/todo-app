@@ -1,0 +1,5 @@
+# IntelliJ settings
+.idea/
+
+# Maven build output
+target/
