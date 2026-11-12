@@ -32,6 +32,12 @@ public class Task {
 
     }
 
+    public Task(String title, String description, LocalDate dueDate){
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -75,5 +81,6 @@ public class Task {
     public Long getId() {
         return id;
     }
+
 
 }
