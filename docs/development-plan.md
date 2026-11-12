@@ -78,13 +78,34 @@ curl http://localhost:8080/actuator/health   # {"status":"UP"}
 
 Branch `feature/task-model`
 
-- [ ] Flyway migration `V1__create_tasks.sql` (above)
-- [ ] `TaskStatus` enum (TODO, DONE) and `Task` JPA entity
-- [ ] `TaskRepository extends JpaRepository<Task, Long>` with `List<Task> findByStatus(TaskStatus status)`
-- [ ] DTOs as Java records: `CreateTaskRequest`, `UpdateTaskRequest`, `TaskResponse`, plus a small `TaskMapper`
-- [ ] Validation annotations on the requests: `@NotBlank`, `@Size(max = 100)`, `@Size(max = 500)`
+Do the tasks in this order, one at a time. Each task uses the one before it:
 
-**Done when:** app starts and Flyway creates the table (check with `docker exec` and `\dt`).
+```
+table  ->  enum  ->  entity  ->  repository  ->  DTOs  ->  mapper
+```
+
+| # | Task | What you learn | How to check | Commit |
+| --- | --- | --- | --- | --- |
+| 2.1 | Create branch `feature/task-model` | Git workflow | `git branch` shows the new branch | none |
+| 2.2 | Flyway migration `V1__create_tasks.sql` (see Data model above) | SQL, Flyway migrations | App starts, `\d tasks` in psql shows the table | `feat: add tasks table migration` |
+| 2.3 | `TaskStatus` enum (TODO, DONE) | Java enums | `./mvnw compile` passes | `feat: add TaskStatus enum` |
+| 2.4 | `Task` JPA entity | JPA: how a class maps to a table | App starts (`ddl-auto: validate` checks the entity matches the table) | `feat: add Task entity` |
+| 2.5 | `TaskRepository extends JpaRepository<Task, Long>` with `List<Task> findByStatus(TaskStatus status)` | Spring Data: queries from method names | App starts (real tests in Step 5) | `feat: add TaskRepository` |
+| 2.6 | DTO records `CreateTaskRequest`, `UpdateTaskRequest`, `TaskResponse` with validation: `@NotBlank`, `@Size(max = 100)`, `@Size(max = 500)` | Records, why the API does not expose the entity | `./mvnw compile` passes | `feat: add task DTOs with validation` |
+| 2.7 | `TaskMapper` (entity to DTO and back) | Mapping between layers | `./mvnw compile` passes (unit tests in Step 3) | `feat: add TaskMapper` |
+
+Checklist:
+
+- [ ] 2.1 Branch created
+- [ ] 2.2 Migration `V1__create_tasks.sql`
+- [ ] 2.3 `TaskStatus` enum
+- [ ] 2.4 `Task` entity
+- [ ] 2.5 `TaskRepository`
+- [ ] 2.6 DTOs with validation
+- [ ] 2.7 `TaskMapper`
+- [ ] CI green, PR opened and merged
+
+**Done when:** app starts, Flyway creates the table (check with `docker exec` and `\d tasks`), and CI is green.
 
 ## Step 3: Service and unit tests (Week 2)
 
