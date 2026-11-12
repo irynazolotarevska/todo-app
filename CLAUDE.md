@@ -11,10 +11,12 @@ I must be able to explain every line in an interview.
 
 Detailed plans are in `docs/`:
 - `docs/build-plan.md`: goals, scope, tech stack, roadmap
-- `docs/development-plan.md`: the 10 build steps, data model, API contract
+- `docs/development-plan.md`: epics E0 to E8 (tasks, subtasks, Definition of Done),
+  data model, API contract
 - `docs/test-plan.md`: requirements R1 to R7, test cases TC-01 to TC-33
 
-Always follow `docs/development-plan.md` step by step.
+Always follow `docs/development-plan.md` epic by epic, task by task.
+Epics are also tracked as GitHub Issues (label `epic`).
 
 ## MVP scope
 
@@ -30,7 +32,7 @@ search, tags, pagination.
 
 ## Tech stack
 
-- Java 21, Maven (multi-module from Step 7), Spring Boot 4
+- Java 21, Maven (multi-module from E2), Spring Boot 4
   (Web, Data JPA / Hibernate, Validation, Actuator), Thymeleaf + Bootstrap
 - PostgreSQL 16 + Flyway, Docker + docker-compose
 - springdoc OpenAPI (Swagger UI)
@@ -58,7 +60,7 @@ todo-app/
 ## Commands
 
 ```bash
-docker compose up -d                  # start PostgreSQL (and the app from Step 7)
+docker compose up -d                  # start PostgreSQL (and the app from E2)
 cd app && ./mvnw spring-boot:run      # run the app locally
 ./mvnw -B verify                      # build + unit + integration tests
 ./mvnw -pl api-tests test             # API tests (app must be running)
@@ -89,13 +91,19 @@ Swagger UI: http://localhost:8080/swagger-ui.html
 
 ## Git rules
 
-- One branch per step: `feature/<step-name>`
+- One branch per epic: `feature/e<n>-<short-name>`; the PR closes the epic issue (`Closes #<n>`)
 - Conventional Commits: `feat:`, `test:`, `ci:`, `docs:`, `fix:`
 - Small commits. CI must be green before merging
 
 ## How to work with me
 
-- Work on one step at a time. Do not jump ahead to later steps
+- Work on one epic at a time. Do not jump ahead to later epics
+- Every epic ends logically: a complete feature I can demonstrate, with its tests
+- For every task, first tell me the goal, why we need it, the test cases (TC IDs),
+  the subtasks and "done when". Then let me try to work out the code myself:
+  give hints first, and full code only if I ask or get stuck
+- One small subtask at a time. Always show where we are in the epic
+- I write the application and test code myself. You review it
 - Before writing code, show a short plan and wait for my OK
 - After changes, explain what you did and why in simple English,
   like to a junior engineer. I am learning
